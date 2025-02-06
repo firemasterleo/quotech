@@ -53,6 +53,8 @@
 @import '../sass/variables.scss';
 
 
+
+
 .overlay {
   position: fixed;
   width: 100%;
@@ -74,8 +76,8 @@
     left: 0;
     height: 50.05vh;
     width: 100vw;
-    background: $bgcolorblack;
-    background: #0A0A0A;
+    background-color: $bgcolordeepwhite; /* Solid black background */
+
 
     
   }
@@ -88,8 +90,8 @@
     width: 100vw;
     // border :solid;
     position:absolute;
-    background: $bgcolorblack;
-    background: #0A0A0A;
+    background-color: $bgcolordeepwhite; /* Solid black background */
+
 
   }
 
@@ -106,42 +108,42 @@
 
     .q {
       font-size: 30px;
-      color: $textcolorwhite;
+      color: #004c80;
       // border: solid red;
     }
     .u {
       font-size: 30px;
-      color: $textcolorwhite;
+      color: #004c80;
       
       // border: solid red;
     }
     .o {
       font-size: 30px;
-      color: $textcolorwhite;
+      color: #004c80;
       
       // border: solid red;
     }
     .t {
       font-size: 30px;
-      color: $textcolorwhite;
+      color: #004c80;
       
       // border: solid red;
     }
     .e {
       font-size: 30px;
-      color: $textcolorwhite;
+      color: #004c80;
       
       // border: solid red;
     }
     .c {
       font-size: 30px;
-      color: $textcolorwhite;
+      color: #004c80;
       
       // border: solid red;
     }
     .h {
       font-size: 30px;
-      color: $textcolorwhite;
+      color: #004c80;
       
       // border: solid red;
     }
