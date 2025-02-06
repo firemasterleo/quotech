@@ -9,24 +9,30 @@
 
       </div>
     <div class="vom">
-      <div class="v" ref="v">
+      <div class="q" ref="q">
         <h3>
-          V
+          Q
         </h3>
       </div>
-      <div class="image" ref="logo">
-        <svg width="35px" height="35px" viewBox="0 0 104 104" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#BFBFBF" stroke="#BFBFBF">
-
-<g id="SVGRepo_bgCarrier" stroke-width="0"/>
-
-<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.624"/>
-
-<g id="SVGRepo_iconCarrier"> <!-- Uploaded to: SVG Repo, www.svgrepo.com, Transformed by: SVG Repo Mixer Tools --> <title>11-multimeda-camera</title> <desc>Created with Sketch.</desc> <defs> </defs> <g id="3.Multimedia" stroke-width="1.9760000000000002" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"> <g id="Multimedia-(Color)" transform="translate(-98.000000, -300.000000)" stroke="#263238" stroke-width="1.9760000000000002" fill="rgb(191, 191, 191)"> <g id="11-multimeda-camera" transform="translate(100.000000, 302.000000)"> <path d="M48.385739,99.8603249 C43.9254031,99.7471008 39.6106036,99.0483206 35.5153424,97.8379863 C18.7955864,92.8965446 5.73520678,79.4282608 1.37023842,62.4691696 L1.37023842,62.4691696 L57.1990784,62.4691696 L36.6459451,98.0682408" id="Layer-1"> </path> <path d="M85.276884,85.276884 C72.6108554,97.9589327 53.9329246,102.883915 36.6459451,98.0682408 L64.3981569,50 L84.9512902,85.5990712 L84.9512902,85.5990712 C85.0603829,85.4921143 85.1689146,85.384717 85.276884,85.2768839 L85.276884,85.276884 Z" id="Layer-2"> </path> <path d="M98.1891197,37.0877643 C102.839082,54.3978911 97.7652757,73.0359446 84.9512902,85.5990712 L84.9512902,85.5990712 L57.1990784,37.5308304 L98.3053451,37.5308304 L98.3053451,37.5308304 C98.267264,37.3828749 98.2285211,37.2351851 98.1891197,37.0877643 L98.1891197,37.0877643 Z" id="Layer-3"> </path> <path d="M62.9122357,1.81088034 C80.2282263,6.43895846 93.8323511,20.1520301 98.3053451,37.5308304 L98.3053451,37.5308304 L42.8009216,37.5308304 L63.3540549,1.93175915 C63.2068811,1.89076061 63.0596065,1.85046808 62.9122357,1.81088034 L62.9122357,1.81088034 Z" id="Layer-4"> </path> <path d="M63.3540549,1.93175915 L35.6018431,50 L15.0487098,14.4009288 C14.9396171,14.5078857 14.8310854,14.615283 14.723116,14.7231161 C27.3891446,2.04106731 46.0670754,-2.88391452 63.3540549,1.93175915 Z" id="Layer-5"> </path> <path d="M1.69405707,62.4691696 C-2.75199608,45.2847182 2.34398188,26.8569367 15.0487098,14.4009288 L42.8009216,62.4691696 L1.69405707,62.4691696 L1.69405707,62.4691696 Z" id="Layer-6"> </path> </g> </g> </g> </g>
-
-</svg> 
+      <div class="u" ref="u">
+            <h3>
+              U
+            </h3>
  </div>
-      <div class="m" ref="m">
-          <h3>M</h3>
+      <div class="o" ref="o">
+          <h3>O</h3>
+      </div>
+      <div class="t" ref="t">
+          <h3>T</h3>
+      </div>
+      <div class="e" ref="e">
+          <h3>E</h3>
+      </div>
+      <div class="c" ref="c">
+          <h3>C</h3>
+      </div>
+      <div class="h" ref="h">
+          <h3>H</h3>
       </div>
     </div>
   </div>
@@ -98,30 +104,48 @@
     height: 2.5rem;
     overflow: hidden;
 
-    .v {
+    .q {
       font-size: 30px;
       color: $textcolorwhite;
       // border: solid red;
     }
-    .m {
+    .u {
+      font-size: 30px;
+      color: $textcolorwhite;
+      
+      // border: solid red;
+    }
+    .o {
+      font-size: 30px;
+      color: $textcolorwhite;
+      
+      // border: solid red;
+    }
+    .t {
+      font-size: 30px;
+      color: $textcolorwhite;
+      
+      // border: solid red;
+    }
+    .e {
+      font-size: 30px;
+      color: $textcolorwhite;
+      
+      // border: solid red;
+    }
+    .c {
+      font-size: 30px;
+      color: $textcolorwhite;
+      
+      // border: solid red;
+    }
+    .h {
       font-size: 30px;
       color: $textcolorwhite;
       
       // border: solid red;
     }
 
-    .image {
-      // width: 2.2rem;
-      // height: 2.2rem;
-      // border:solid;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-svg {
-      fill: $textcolorwhite;
-      // border: solid red;
-}
-    }
   }
 
 
@@ -173,12 +197,20 @@ onMounted(() => {
   }, 2700);
 
   vomAnimation = gsap.timeline({ defaults: { duration: 0.6, ease: "power2.out" }, delay: 0.2 })
-    .from(".v", { y: -100, opacity: 0 }) // V enters
-    .from(".image", { y: 100, opacity: 0 }, "<") // O enters slightly before V finishes
-    .from(".m", { x: 100, opacity: 0, }, "<") // M enters slightly before O finishes
-    .to(".v", { y: 100, opacity: 0, delay: 0.8 }) // V exits
-    .to(".image", { y: -100, opacity: 0 }, "<") // O exits slightly before V finishes
-    .to(".m", { x: 100, opacity: 0 }, "<") // M exits slightly before O finishes
+    .from(".q", { y: -100, opacity: 0 }) // V enters
+    .from(".u", { y: 100, opacity: 0 }, "<") // O enters slightly before V finishes
+    .from(".o", { y: -100, opacity: 0, }, "<") // M enters slightly before O finishes
+    .from(".t", { y: 100, opacity: 0, }, "<") // M enters slightly before O finishes
+    .from(".e", { y: -100, opacity: 0, }, "<") // M enters slightly before O finishes
+    .from(".c", { y: 100, opacity: 0, }, "<") // M enters slightly before O finishes
+    .from(".h", { y: -100, opacity: 0, }, "<") // M enters slightly before O finishes
+    .to(".q", { y: 100, opacity: 0, delay: 0.8 }) // V exits
+    .to(".u", { y: -100, opacity: 0 }, "<") // O exits slightly before V finishes
+    .to(".o", { y: 100, opacity: 0 }, "<") // M exits slightly before O finishes
+    .to(".t", { y: -100, opacity: 0 }, "<") // M exits slightly before O finishes
+    .to(".e", { y: 100, opacity: 0 }, "<") // M exits slightly before O finishes
+    .to(".c", { y: -100, opacity: 0 }, "<") // M exits slightly before O finishes
+    .to(".h", { y: 100, opacity: 0 }, "<") // M exits slightly before O finishes
 
     .to(".top", { y: "-100%", duration: 0.8, ease: "cubic-bezier(0.6, 0, 0.2, 1)" }, "-=0.25")
     .to(".bottom", { y: "100%", duration: 0.8, ease: "cubic-bezier(0.6, 0, 0.2, 1)" }, "<"); // Move down

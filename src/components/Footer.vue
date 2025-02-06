@@ -165,15 +165,14 @@
     }
 
     .bottom-container {
-        border-top: solid 1px #1A1A1A;
+        border-top: solid 1px $textcolorwhite;
         width: 100%;
         display: flex;
         align-items: center;
         margin-inline: auto;
         height: 6.5rem;
         font-size: 12px;
-        color: #7e848a;
-    color: #1A1A1A;
+        color: $textcolorwhite;
 
         position: absolute;
         bottom: 1rem;
@@ -189,18 +188,8 @@
         }
     }
 
-    .underline {
-        border-top: solid 2px #1A1A1A;
-        width: 90%;
-        position: absolute;
-        left: 2.7rem;
-        bottom: 6.5rem;
-        margin-inline: auto;
-    }
 }
-.footerbottom {
-    // border: solid red;
-}
+
 </style>
 
 
