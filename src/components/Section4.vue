@@ -26,25 +26,25 @@
                 <div class="project project1">
                     <div class="image">
                       <div class="overlay"></div>
-                        <img src="/src/assets/vom-image1.jpeg" loading="lazy" alt="">
+                        <img src="/src/assets/electric-fence.jpg" loading="lazy" alt="">
                     </div>
                   </div>
                   <div class="project project2">
                     <div class="image">
                       <div class="overlay"></div>
-                      <img src="/src/assets/vom-image6.jpeg" loading="lazy" alt="">
+                      <img src="/src/assets/home-automation.jpg" loading="lazy" alt="">
                     </div>
                   </div>
                   <div class="project project3">
                     <div class="image">
                       <div class="overlay"></div>
-                      <img src="/src/assets/vom-image3.jpeg" loading="lazy" alt="">
+                      <img src="/src/assets/motorized-gate.jpg" loading="lazy" alt="">
                     </div>
                   </div>
                   <div class="project project4">
                     <div class="image">
                       <div class="overlay"></div>
-                      <img src="/src/assets/vom-image4.jpeg" loading="lazy" alt="">
+                      <img src="/src/assets/alarm-systems.jpg" loading="lazy" alt="">
                     </div>
                 </div>
             </div>

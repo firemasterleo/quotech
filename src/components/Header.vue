@@ -14,7 +14,7 @@
                     <ul class="nav-links">
                         <div class="nav-item">
                             <router-link to="/About">
-                                <p>About</p>
+                                <p>About Us</p>
                 </router-link>
 
                         </div>
@@ -69,7 +69,7 @@
             width: 100%;
             background-color:                 #004c80; /* Solid black background */
             backdrop-filter: blur(20px);
-            height: 4rem;
+            height: 3.2rem;
             // border-radius: 2rem;
             padding-left: 1rem;
             padding-right: 1rem;
@@ -82,7 +82,7 @@
             -webkit-tap-highlight-color: transparent;
 
             .logo{
-                // border-right: solid 2px #7cae65;
+                // borderight: solid 2px #7cae65;
                 // border: solid red;
                 padding-right: 1rem;
                 // letter-spacing: 6px;
@@ -113,7 +113,7 @@
                 
                 .nav-links {
                     display: flex;
-                    gap: 1rem;
+                    gap: 3rem;
                     // width: 30rem;
                     min-width: fit-content;
                     overflow: hidden;
@@ -132,7 +132,7 @@
                             font-family: "Poppins", serif;
                             cursor: pointer;
                             color: $textcolorwhite;
-                            border-bottom: solid 1.5px;
+                            // border-bottom: solid 1.5px;
                         
 
      

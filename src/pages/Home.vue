@@ -2,8 +2,8 @@
     <div class="body">
       
         <Header />
-        <Section2 />
         <HeroSection />
+        <Section2 />
         <Section3 />
         <Section4 />
         <Footer />

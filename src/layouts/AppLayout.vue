@@ -18,7 +18,7 @@
             <h3>
               U
             </h3>
- </div>
+      </div>
       <div class="o" ref="o">
           <h3>O</h3>
       </div>
@@ -77,6 +77,7 @@
     height: 50.05vh;
     width: 100vw;
     background-color: $bgcolordeepwhite; /* Solid black background */
+    // background-color: rgba(255, 255, 255, 0.057);
 
 
     
@@ -91,6 +92,8 @@
     // border :solid;
     position:absolute;
     background-color: $bgcolordeepwhite; /* Solid black background */
+    // background-color: rgba(0, 0, 0, 0.224);
+
 
 
   }
