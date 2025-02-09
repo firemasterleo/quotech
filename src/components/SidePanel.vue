@@ -103,13 +103,17 @@
 
 
                   p {
+                -webkit-tap-highlight-color: transparent;
+
                       font-size: 20px;
                       font-weight: 500;
                       color: $primarycolorblue;
+                    }
+                    p :active {
+                      
+                      color: $primarycolorblue;
                   }
-                  svg {
-                      fill: $textcolorwhite;
-                  }
+
               }
 
               .active {
