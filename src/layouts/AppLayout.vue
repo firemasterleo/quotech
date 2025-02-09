@@ -179,7 +179,7 @@
                         // opacity: 0;
                         // visibility: hidden;
                         width: 23rem;
-                        height: calc(100vh - 3rem);
+                        height: 100vh;
                         transform: translatex(-100%);
                         // padding-top: 6rem;
                         padding-left: 1.5rem;

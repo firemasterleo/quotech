@@ -4,6 +4,7 @@
         <Header />
         <HeroSection />
         <Section2 />
+        <Newsletter />
         <Section3 />
         <Section4 />
         <Footer />
@@ -39,6 +40,7 @@ import Section4 from '../components/Section4.vue'; // Adjust path as necessary
 import SectionA from '../components/SectionA.vue'; // Adjust path as necessary
 import Footer from '../components/Footer.vue'; // Adjust path as necessary
 import Header from '../components/Header.vue'; // Adjust path as necessary
+import Newsletter from '../components/Newsletter.vue';
 
 
 import gsap from 'gsap';

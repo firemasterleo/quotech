@@ -142,7 +142,7 @@
 
       .sidebarcontainer {
           // width: fit-content;
-          height: calc(100vh - 2.8rem);
+          height: 100vh;
       }
   }
 

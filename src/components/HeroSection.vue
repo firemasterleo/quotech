@@ -3,7 +3,7 @@
       <div class="section">
             <div class="right-section">
                 <h2>
-                    <span>Keep Your Home Safe' </span><br>With our State-of-the-art Electric fence, Motorized gate & Security Alarm Systems.
+                    <span>Keep Your Home Safe!</span><br>With our State-of-the-art Electric fence, Motorized gate & Security Alarm Systems.
                 </h2>
                 <div class="buttons">
                     <button>
