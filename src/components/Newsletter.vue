@@ -1,5 +1,8 @@
 <template>
-<form name="newsletter-signup" method="POST" data-netlify="true">
+<form   name="contact"
+  action="/pages/success"
+  method="POST"
+  data-netlify="true">
   <label for="email">Email Address:</label>
   <input type="email" id="email" name="email" required>
   
