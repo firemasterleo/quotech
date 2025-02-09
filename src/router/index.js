@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from '../pages/Home.vue';
 import About from '../pages/About.vue';
+import Services from '../pages/Services.vue';
 import { nextTick } from "vue";
 
 
@@ -17,7 +18,13 @@ const router = createRouter({
             path: '/About',
             name: 'About',
             component: About,
-          }
+          },
+        {
+            path: '/Services',
+            name: 'Services',
+            component: Services,
+          },
+
         
     ],
 
