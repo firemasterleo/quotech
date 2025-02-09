@@ -3,7 +3,7 @@
       <div class="section">
             <div class="right-section">
                 <h2>
-                    <span>Keep your home safe' </span><br>with our state-of-the-art Electric fence, Motorized gate & Security alarm systems.
+                    <span>Keep Your Home Safe' </span><br>with our state-of-the-art Electric fence, Motorized gate & Security alarm systems.
                 </h2>
                 <div class="buttons">
                     <button>
@@ -66,7 +66,10 @@ display: flex;
 
         h2 {
             color: $textcolorwhite;
+            font-weight: 600;
+            font-size: 22px;
             span {
+                font-weight: 700;
                 font-size: 40px;
             }
         }
@@ -116,7 +119,7 @@ display: flex;
 
 @media (max-width: 800px) {
   .sectioncontainer {
-      height: 120vh;
+      height: 110vh;
     .section {
       width: 100vw;
       height: 100%;
@@ -184,8 +187,9 @@ display: flex;
             }
         }
 }
-@media (max-width: 1200px) and (min-width: 800px) {
+@media (max-width: 1050px) and (min-width: 800px) {
   .sectioncontainer {
+    height: 120vh;
     .section {
 
     }
