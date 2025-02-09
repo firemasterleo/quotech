@@ -189,16 +189,17 @@
                         gap: 1.2rem;
                         overflow-y: hidden;
                         // z-index: 0;
-                        transition: all 0.2s; 
+                        transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1) ; 
                         position: fixed;
                         // top: 3rem;
                         z-index: 24;
-                                           
+                        
                         // visibility: hidden;
                         // border: solid red;
-                
+                        
                         
                         &.is-expanded {
+                          // transition: all 0.35s; 
   transform: translatex(-10%);
 }
 
@@ -210,14 +211,18 @@
                               background-color: rgba(0, 0, 0, 0.646);
                               position: fixed;
                               bottom: 0;
-                        z-index: 10;
-                        visibility: hidden;
-                        
-                        
+                              z-index: 10;
+                              opacity: 0;
+                              visibility: hidden;
+                              transition: opacity 0.2s ease-out, visibility 0s linear 0.5s; 
+                                                    
+                              
                         &.is-expanded {
-                          transition: all 1.8s ease-in;
-                          visibility: visible;
-                        }
+                          opacity: 1;
+                        visibility: visible;
+                        transition: opacity 0.2s ease-in;
+                                              
+}
 
                             }
 }
