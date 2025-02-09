@@ -110,17 +110,9 @@
                   svg {
                       fill: $textcolorwhite;
                   }
-
-                  &:hover {
-                      background-color: rgb(58, 59, 58);
-                      transition: all 0.1s;
-
-                      
-                  }
               }
 
               .active {
-                  background-color: #eee; /* Highlight active tab */
                   border-radius: 0.5rem;
                   background-color: $primarycolorblue;
 
@@ -128,13 +120,6 @@
                       color: $bgcolordeepwhite;
                   }
 
-                  :hover {
-                      transition: all 0.1s;
-                      background-color: $bgcolordeepgreen;
-
-
-                      
-                  }
               }
               
           }
@@ -148,7 +133,7 @@
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 800px) {
   .content {
 
       .sidebarcontainer {

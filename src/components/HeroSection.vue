@@ -124,7 +124,7 @@ display: flex;
       width: 100vw;
       height: 100%;
     display: block;
-      padding-top: 10rem;
+      padding-top: 6rem;
       padding-inline: 0rem;
   
       
