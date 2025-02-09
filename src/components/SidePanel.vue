@@ -3,6 +3,9 @@
       <div class="sidebarcontainer">
       <div class="sidebarsection">
           <div class="sidebar">
+            <div class="logo">
+              <h1>Quotech</h1>
+            </div>
               <div class="menu">
                   <router-link to="/" exact-active-class="active">
                       <div class="home" @click="handleItemClick">  
@@ -55,10 +58,30 @@
       // height: 50rem;
       width: 100%;
       // border: solid red;
-
+      
       .sidebar {
-          padding-top: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+          // padding-top: 1.5rem;
           // border: solid blue;
+          .logo {
+            padding-left:1rem ;
+            // letter-spacing: 6px;
+                font-size: 12px;
+                position: relative; /* Ensure proper layering */
+                background: transparent;
+                // border: solid;
+                height: 3.2rem;
+                display: flex;
+                align-items: center;
+
+                h1 {
+                    color: $primarycolorblue;
+                    position: relative; /* Ensure it stays in front */
+          /* Make it behave like a button */
+                }
+          }
           .menu {
               // border: solid;
               display: flex;

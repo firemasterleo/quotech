@@ -186,7 +186,7 @@
                         // z-index: 0;
                         transition: all 0.2s; 
                         position: fixed;
-                        top: 3rem;
+                        // top: 3rem;
                         z-index: 24;
                                            
                         // visibility: hidden;
