@@ -1,15 +1,38 @@
 <template>
-<form   name="contact"
-  action="/pages/success"
+  <form name="contact"
   method="POST"
-  data-netlify="true">
-  <label for="email">Email Address:</label>
-  <input type="email" id="email" name="email" required>
-  
-  <button type="submit">Subscribe</button>
+  data-netlify="true"
+  netlify-honeypot="bot-field">
+<label for="email">Email Address:</label>
+<input type="email" id="email" name="email" required>
+
+<!-- Optional hidden field for honeypot (anti-bot) -->
+<input type="hidden" name="form-name" value="contact">
+
+<button type="submit">Subscribe</button>
 </form>
+
+<!-- Success message container -->
+<div id="success-message" style="display: none;">
+<h3>Thank you for subscribing! You'll hear from us soon.</h3>
+</div>
   </template>
-  
+
+
+<script>
+const form = document.querySelector('form');
+const successMessage = document.getElementById('success-message');
+
+form.addEventListener('submit', function(event) {
+event.preventDefault();
+
+// Show success message after submission
+successMessage.style.display = 'block';
+
+// Optionally, you can hide the form or clear the input
+form.reset();
+});
+</script>
 
   
   <style lang="scss" scoped>
