@@ -62,6 +62,7 @@ display: flex;
         display: flex;
         flex-direction: column;
         gap: 2rem;
+        // border: solid;
 
         h2 {
             color: $textcolorwhite;
@@ -115,14 +116,18 @@ display: flex;
 
 @media (max-width: 800px) {
   .sectioncontainer {
+      height: 120vh;
     .section {
       width: 100vw;
-      height: 100vh;
-      flex-direction: column;
-      padding-inline: 1rem;
+      height: 100%;
+    display: block;
       padding-top: 10rem;
-
+      padding-inline: 0rem;
+  
+      
       .right-section {
+            padding-inline: 1rem;
+        //   border: solid red;
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -154,28 +159,30 @@ display: flex;
     }
     .left-section {
         width: 100%;
-        height: 80%;
-        margin-top: 5rem;
-  gap: 10px; /* Space between grid items */
-  border-radius: 3rem;
-//   border: solid red;
-// overflow: hidden;
+        height: fit-content;
+        margin-top: 4rem;
+        // margin-inline: -1rem;
+        // gap: 10px; /* Space between grid items */
+        border-radius: 0rem;
+        // border: solid red;
+        // overflow: hidden;
 
-.image {
-    width: 100%;
-    height: 100%;
-    // border: solid red;
-    overflow: hidden;
+        .image {
+            width: 100vw;
+            height: 100%;
+            // border: solid red;
+            overflow: hidden;
+            // overflow: visible;
 
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: scale-down;
+                    img {
+                        width: 100%;
+                        height: auto;
+                        object-fit: cover;
+                    }
+                }
+            }
             }
         }
-    }
-    }
-  }
 }
 @media (max-width: 1200px) and (min-width: 800px) {
   .sectioncontainer {
