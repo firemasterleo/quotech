@@ -189,10 +189,10 @@
                         gap: 1.2rem;
                         overflow-y: hidden;
                         // z-index: 0;
-                        transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1) ; 
                         position: fixed;
                         // top: 3rem;
                         z-index: 24;
+                        opacity: 0;
                         
                         // visibility: hidden;
                         // border: solid red;
@@ -200,6 +200,8 @@
                         
                         &.is-expanded {
                           // transition: all 0.35s; 
+                          transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1) ; 
+                          opacity: 1;
   transform: translatex(-10%);
 }
 
