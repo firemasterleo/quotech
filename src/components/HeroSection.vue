@@ -119,7 +119,7 @@ display: flex;
 
 @media (max-width: 800px) {
   .sectioncontainer {
-      height: 110vh;
+      height: 100vh;
     .section {
       width: 100vw;
       height: 100%;
@@ -139,7 +139,7 @@ display: flex;
         h2 {
             color: $textcolorwhite;
             span {
-                font-size: 40px;
+                font-size: 36px;
             }
         }
 

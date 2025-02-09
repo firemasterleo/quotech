@@ -43,15 +43,13 @@
   <div class="sidepanel-overlay" :class="{ 'is-expanded': isSidePanelOpen }" @click="handleItemClick">
 
   </div>
-<keep-alive>
-  <router-view v-slot="{ Component }" > 
-    <transition name="fade" mode="out-in" @after-leave="cleanupAnimations"> 
-      <!-- Dynamically render the component with the transition -->
-      <component :is="Component" />
-    </transition>
-  </router-view>
 
-</keep-alive>
+    <router-view v-slot="{ Component }" > 
+      <transition name="fade" mode="out-in" @after-leave="cleanupAnimations"> 
+        <!-- Dynamically render the component with the transition -->
+        <component :is="Component" />
+      </transition>
+    </router-view>
     
 </template>
 

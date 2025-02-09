@@ -109,22 +109,22 @@
                       font-weight: 500;
                       color: $primarycolorblue;
                     }
-                    p :active {
+                    p:active {
                       
                       color: $primarycolorblue;
                   }
 
               }
 
-              .active {
-                  border-radius: 0.5rem;
-                  background-color: $primarycolorblue;
+              // .active {
+              //     border-radius: 0.5rem;
+              //     background-color: $primarycolorblue;
 
-                  p {
-                      color: $bgcolordeepwhite;
-                  }
+              //     p {
+              //         color: $bgcolordeepwhite;
+              //     }
 
-              }
+              // }
               
           }
           }
