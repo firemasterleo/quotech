@@ -1,84 +1,127 @@
+
+
 <template>
-    <div class="section2container">
-        <div class="section2">
-            <div class="section2veil"></div>
-            <div class="text">
-                <h1>Views On Mide</h1>
-                <p>"Welcome to my world through my Views. Here, every picture tells a story, captures a moment, and brings emotions to life. Explore my portfolio and see the world as I see it—full of beauty, light, and untold stories."</p>
-            </div>
-            <div class="section2-image">
-                <img src="../assets/vom-image1.jpeg" loading="lazy" alt="">
-                <img src="../assets/vom-image6.jpeg" loading="lazy" alt="">
-                <img src="../assets/vom-image3.jpeg" loading="lazy" alt="">
-                <img src="../assets/vom-image4.jpeg" loading="lazy" alt="">
-                <img src="../assets/vom-image5.jpeg" loading="lazy" alt="">
-                <img src="../assets/vom-image7.jpeg" loading="lazy" alt="">
-            </div>
-        </div>
+    <div
+      ref="content"
+      class="scrolling-content"
+      @mouseover="pauseAnimation"
+      @mouseleave="resumeAnimation"
+    >
+      <!-- Hardcoded divs for testing -->
+      <div class="item">Item 1</div>
+      <div class="item">Item 2</div>
+      <div class="item">Item 3</div>
+      <div class="item">Item 4</div>
+      <div class="item">Item 5</div>
+      <div class="item">Item 6</div>
+      <div class="item">Item 7</div>
+      <div class="item">Item 8</div>
     </div>
-</template>
-
-<script setup>
-</script>
-
-<style lang="scss" scoped>
-.section2container {
-    // border: solid blue ;
-    background-color: rgb(0, 0, 0);
-    // background: radial-gradient(circle at 10% 20%, rgb(0, 0, 0) 0%, rgb(29, 27, 27) 90.2%);
-    // height: 60rem;
-    width: 100%;
+  </template>
+  
+  <script setup>
+  import { ref, onMounted, onBeforeUnmount } from "vue";
+  import { gsap } from "gsap";
+  import { Draggable } from "gsap/Draggable";
+  
+  // Register GSAP plugins
+  gsap.registerPlugin(Draggable);
+  
+  // Refs and reactive variables
+  const content = ref(null);
+  let animation = null;
+  let draggable = null;
+  let contentWidth = 0;
+  let dragPosition = 0;  // Track the drag position
+  
+  // Mounting the animation and draggable logic
+  onMounted(() => {
+    setupAnimation();
+    setupDraggable();
+  });
+  
+  // Setup the auto-scrolling animation
+  function setupAnimation() {
+    // Duplicate content for seamless looping
+    content.value.innerHTML += content.value.innerHTML;
+  
+    // Calculate the total width of the content
+    contentWidth = content.value.offsetWidth / 2;
+  
+    // GSAP animation with smooth loop
+    animation = gsap.to(content.value, {
+      x: `-=${contentWidth}`,
+      duration: 15,
+      repeat: -1,
+      ease: "none",
+      modifiers: {
+        x: gsap.utils.unitize(modifyX), // Ensure seamless looping
+      },
+      paused: true, // Start paused until drag completes
+    });
+  }
+  
+  // Setup the draggable functionality
+  function setupDraggable() {
+    draggable = Draggable.create(content.value, {
+      type: "x",
+      ease: "power3.out", // Smooth easing for drag
+      inertia: true,
+      dragResistance: .3,
+      edgeResistance: .2,
+      throwProps: true, // Enable momentum-based throw effect
+      onDrag: () => {
+        // Pause the animation while dragging
+        animation.pause();
+        dragPosition = parseFloat(content.value._gsap.x); // Track drag position
+      },
+      onRelease: () => {
+        // After drag release, stop modifying the position and let the content stay
+        animation.seek(animation.totalTime() + dragPosition); // Continue from the new drag position
+      }
+    });
+  }
+  
+  // Modify x position for seamless looping
+  function modifyX(x) {
+    return (parseFloat(x) % contentWidth) || 0;
+  }
+  
+  // Pause the animation on hover
+  function pauseAnimation() {
+    animation.pause();
+  }
+  
+  // Resume the animation when hover leaves
+  function resumeAnimation() {
+    // Resume from the drag position (dragPosition is the position where drag left off)
+    animation.play();
+    animation.seek(dragPosition);
+  }
+  
+  // Cleanup on component destruction
+  onBeforeUnmount(() => {
+    if (animation) animation.kill();
+    if (draggable) draggable[0].kill();
+  });
+  </script>
+  
+  <style scoped>
+  .scrolling-content {
     display: flex;
+    white-space: nowrap;
     overflow: hidden;
-
-    .section2 {
-        background: radial-gradient(ellipse 25% 30% at 55% 30%, #5b6457, #000000);
-        width: 80rem;
-        height: 100%;
-        margin-block: auto auto;
-        position: relative;
-        // flex-wrap: wrap;
-        margin-inline: auto;
-        // padding-top: 10rem;
-
-        .section2veil {
-            // border: solid red;
-            position: absolute;
-            z-index: 1;
-            height: 100%;
-            width: 100%;
-            background: linear-gradient(
-                to bottom,
-                rgba(0, 0, 0, 0.548), /* Least transparent at the top */
-                rgba(0, 0, 0, 0.05)  /* Darker and less transparent at the bottom */
-            );
-        }
-
-        .text {
-            position: relative;
-            z-index: 2;
-            color: #7e848a;
-            padding-inline: 1rem;
-            padding-right: 4rem;
-            margin-bottom: 1rem;
-        }
-
-        .section2-image {
-            // border: solid red;
-            // width: 5%;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1rem;
-            // height: 30rem;
-            position: relative;
-            // z-index: ;
-
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-            }
-        }
-    }
-}
-</style>
+    cursor: grab; /* Change cursor to indicate draggable area */
+  }
+  
+  .scrolling-content:active {
+    cursor: grabbing; /* Change cursor when dragging */
+  }
+  
+  .item {
+    padding: 20px;
+    background-color: #f0f0f0;
+    margin: 0 10px;
+  }
+  </style>
+  

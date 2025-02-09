@@ -37,7 +37,9 @@
     </div>
   </div>
 
-
+  <div class="sidepanel" :class="{ 'is-expanded': isSidePanelOpen }">
+       <SidePanel/>
+  </div>
 
     <router-view v-slot="{ Component }">
       <transition name="fade" mode="out-in">
@@ -161,22 +163,61 @@
 .fade-enter-from, .fade-leave-to {
   opacity: 0;
 }
+.sidepanel {
+  display: none;
+}
+
+@media (max-width: 800px) { 
+
+.sidepanel {
+
+                        // opacity: 0;
+                        // visibility: hidden;
+                        width: 23rem;
+                        height: calc(100vh - 3rem);
+                        transform: translatex(-100%);
+                        // padding-top: 6rem;
+                        padding-left: 1.5rem;
+                        border-radius: 0.6rem;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 1.2rem;
+                        overflow-y: hidden;
+                        // z-index: 0;
+                        transition: all 0.2s; 
+                        position: fixed;
+                        top: 3rem;
+                        z-index: 24;
+                                           
+                        // visibility: hidden;
+                        // border: solid red;
+                
+                        
+                        &.is-expanded {
+  transform: translatex(-10%);
+}
+
+                            }
+}
 
 </style>
 
 <script setup>
 import { useRouter } from 'vue-router';
 import { useRoute} from 'vue-router';
-
-import { onMounted, onBeforeUnmount } from 'vue';
-import Header from '../components/Header.vue'; // Adjust path as necessary
-
+import { ref, computed, onMounted, onUnmounted, onBeforeUnmount } from 'vue';
+import { useToggleStore } from '../stores/toggleStore';
 
 
 import LenisScroll from '../components/LenisScroll.vue';
 import gsap from "gsap";
 
-import { ref, onUnmounted } from "vue";
+import SidePanel from '../components/SidePanel.vue'; // Adjust path as necessary
+
+const toggleStore = useToggleStore();
+
+const isSidePanelOpen = computed(() => toggleStore.isSidePanelOpen);
+
 
 let vomAnimation; // Store animation reference
 
@@ -195,6 +236,12 @@ const router = useRouter();
 //     next(); // Navigate to new route
 //   }, 1000);
 // });
+const handleItemClick = () => {
+  if (toggleStore.isSidePanelOpen) {
+    toggleStore.toggleSidePanel(); // used for buttons and  will toggle the side panel off
+  }
+};
+
 
 onMounted(() => {
   overlayTimeout = setTimeout(() => {
