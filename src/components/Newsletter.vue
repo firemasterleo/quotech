@@ -1,65 +1,75 @@
 <template>
-    <div class="newsletter-bar">
-      <p>Subscribe to our newsletter!</p>
-      <form @submit.prevent="subscribe">
-        <input v-model="email" type="email" placeholder="Enter your email" required />
-        <button type="submit">Subscribe</button>
-      </form>
-      <p v-if="message" class="message">{{ message }}</p>
-    </div>
+<form name="newsletter-signup" method="POST" data-netlify="true">
+  <label for="email">Email Address:</label>
+  <input type="email" id="email" name="email" required>
+  
+  <button type="submit">Subscribe</button>
+</form>
   </template>
   
-  <script>
-  import { ref } from 'vue';
-  
-  export default {
-    setup() {
-      const email = ref('');
-      const message = ref('');
-  
-      const subscribe = async () => {
-        if (!email.value) return;
-  
-        try {
-          const response = await fetch('/.netlify/functions/newsletter-signup', {
-            method: 'POST',
-            body: JSON.stringify({ email: email.value }),
-            headers: { 'Content-Type': 'application/json' },
-          });
-  
-          const data = await response.json();
-          message.value = data.message || 'Thank you for subscribing!';
-          email.value = ''; // Clear input
-        } catch (error) {
-          message.value = 'Something went wrong. Please try again.';
-        }
-      };
-  
-      return { email, message, subscribe };
-    },
-  };
-  </script>
+
   
   <style lang="scss" scoped>
-  .newsletter-bar {
-    background: #f8f9fa;
-    padding: 10px;
-    text-align: center;
+ /* General form styles */
+form[name="newsletter-signup"] {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+/* Label styles */
+form[name="newsletter-signup"] label {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* Input field styles */
+form[name="newsletter-signup"] input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+form[name="newsletter-signup"] input[type="email"]:focus {
+  border-color: #007BFF;
+  outline: none;
+}
+
+/* Button styles */
+form[name="newsletter-signup"] button {
+  width: 100%;
+  padding: 12px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+form[name="newsletter-signup"] button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+  form[name="newsletter-signup"] {
+    padding: 15px;
   }
-  input {
-    padding: 8px;
-    margin-right: 5px;
+
+  form[name="newsletter-signup"] input[type="email"],
+  form[name="newsletter-signup"] button {
+    font-size: 14px;
   }
-  button {
-    padding: 8px;
-    background: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-  .message {
-    margin-top: 10px;
-    color: green;
-  }
+}
   </style>
   
