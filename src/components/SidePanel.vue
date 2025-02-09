@@ -1,4 +1,5 @@
 <template>
+
   <div class="content">
       <div class="sidebarcontainer">
       <div class="sidebarsection">

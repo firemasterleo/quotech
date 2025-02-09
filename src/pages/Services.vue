@@ -44,20 +44,5 @@ onMounted(() => {
 });
 
 
-onBeforeUnmount(() => {
-  setTimeout(() => {
-    nextTick(() => {
-      console.log('DOM is fully updated, performing cleanup...');
-  
-      // Perform cleanup logic after the new route's DOM is fully updated and rendered
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-      gsap.globalTimeline.clear();  // Clean up GSAP animations
-      mm.revert(); // Revert matchMedia if necessary
-  
-    });
-  },300); // important Adjust the timeout duration to balance with the router .fade-enter-active, .fade-leave-active in applayout
-
-});  
-
 
 </script>

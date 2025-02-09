@@ -40,9 +40,12 @@
   <div class="sidepanel" :class="{ 'is-expanded': isSidePanelOpen }">
        <SidePanel/>
   </div>
+  <div class="sidepanel-overlay" :class="{ 'is-expanded': isSidePanelOpen }" @click="handleItemClick">
 
-    <router-view v-slot="{ Component }">
-      <transition name="fade" mode="out-in">
+  </div>
+
+    <router-view v-slot="{ Component }" > 
+      <transition name="fade" mode="out-in" @after-leave="cleanupAnimations"> 
         <!-- Dynamically render the component with the transition -->
         <component :is="Component" />
       </transition>
@@ -70,6 +73,8 @@
   z-index: 9999;
   opacity: 1;
   transition: opacity 0.5s ease-out;
+  // border: solid red;
+  // background-color: white;
 
   .top {
     border :none;
@@ -198,25 +203,44 @@
 }
 
                             }
+
+                            .sidepanel-overlay {
+                              width: 100vw;
+                              height: 100vh;
+                              background-color: rgba(0, 0, 0, 0.646);
+                              position: fixed;
+                              bottom: 0;
+                        z-index: 10;
+                        visibility: hidden;
+                        
+                        
+                        &.is-expanded {
+                          transition: all 1.8s ease-in;
+                          visibility: visible;
+                        }
+
+                            }
 }
 
 </style>
 
 <script setup>
-import { useRouter } from 'vue-router';
-import { useRoute} from 'vue-router';
 import { ref, computed, onMounted, onUnmounted, onBeforeUnmount } from 'vue';
 import { useToggleStore } from '../stores/toggleStore';
-
-
-import LenisScroll from '../components/LenisScroll.vue';
 import gsap from "gsap";
+import LenisScroll from '../components/LenisScroll.vue';
+
+import ScrollTrigger from 'gsap/ScrollTrigger';
 
 import SidePanel from '../components/SidePanel.vue'; // Adjust path as necessary
+
+
+gsap.registerPlugin(ScrollTrigger);
 
 const toggleStore = useToggleStore();
 
 const isSidePanelOpen = computed(() => toggleStore.isSidePanelOpen);
+
 
 
 let vomAnimation; // Store animation reference
@@ -225,22 +249,32 @@ let vomAnimation; // Store animation reference
 const showOverlay = ref(true);
 let overlayTimeout;
 
-const route = useRoute();
-const router = useRouter();
+const handleItemClick = () => {
+if (toggleStore.isSidePanelOpen) {
+  toggleStore.toggleSidePanel(); // used for buttons and  will toggle the side panel off
+}
+};
+
+
+
+//use transition lifecyclehook to clean up animation
+const cleanupAnimations = () => {
+  console.log('Performing GSAP cleanup after Vue transition...');
+  
+  ScrollTrigger.getAll().forEach(trigger => trigger.kill()); // Remove all ScrollTriggers
+  gsap.killTweensOf("*"); // Kill all tweens
+  gsap.globalTimeline.clear(); // Ensure global timeline is cleared
+  
+  // Check if cleanup was successful
+  const hasActiveAnimations = gsap.globalTimeline.getChildren().length > 0;
+console.log('Are there any active GSAP animations after cleanup?', hasActiveAnimations);
+
+
+};
 
 // router.beforeEach((to, from, next) => {
 //   showOverlay.value = true; // Show transition screen
 
-//   setTimeout(() => {
-//     showOverlay.value = false; // Hide after 1s
-//     next(); // Navigate to new route
-//   }, 1000);
-// });
-const handleItemClick = () => {
-  if (toggleStore.isSidePanelOpen) {
-    toggleStore.toggleSidePanel(); // used for buttons and  will toggle the side panel off
-  }
-};
 
 
 onMounted(() => {
@@ -267,9 +301,5 @@ onMounted(() => {
     .to(".top", { y: "-100%", duration: 0.8, ease: "cubic-bezier(0.6, 0, 0.2, 1)" }, "-=0.25")
     .to(".bottom", { y: "100%", duration: 0.8, ease: "cubic-bezier(0.6, 0, 0.2, 1)" }, "<"); // Move down
 });
-onUnmounted(() => {
-  clearTimeout(overlayTimeout); // Prevent timeout memory leaks
-  if (vomAnimation) vomAnimation.kill(); // Clean up GSAP animation to prevent memory leaks
 
-});
 </script>
