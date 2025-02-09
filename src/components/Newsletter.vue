@@ -19,20 +19,6 @@
   </template>
 
 
-<script>
-const form = document.querySelector('form');
-const successMessage = document.getElementById('success-message');
-
-form.addEventListener('submit', function(event) {
-event.preventDefault();
-
-// Show success message after submission
-successMessage.style.display = 'block';
-
-// Optionally, you can hide the form or clear the input
-form.reset();
-});
-</script>
 
   
   <style lang="scss" scoped>
