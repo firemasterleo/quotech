@@ -118,6 +118,62 @@ display: flex;
     .section {
       width: 100vw;
       height: 100vh;
+      flex-direction: column;
+      padding-inline: 1rem;
+      padding-top: 10rem;
+
+      .right-section {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+
+        h2 {
+            color: $textcolorwhite;
+            span {
+                font-size: 40px;
+            }
+        }
+
+        .buttons {
+            display: flex;
+            gap: 1rem;
+
+            button {
+                padding-inline: 1rem;
+                border-radius: 1rem;
+                height: 2.2rem;
+                color: #004c80;
+                font-size: 18px;
+                font-weight: 500;
+                
+                border: none;
+            }
+        }
+
+    }
+    .left-section {
+        width: 100%;
+        height: 80%;
+        margin-top: 5rem;
+  gap: 10px; /* Space between grid items */
+  border-radius: 3rem;
+//   border: solid red;
+// overflow: hidden;
+
+.image {
+    width: 100%;
+    height: 100%;
+    // border: solid red;
+    overflow: hidden;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: scale-down;
+            }
+        }
+    }
     }
   }
 }
