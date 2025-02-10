@@ -88,116 +88,16 @@ onMounted(() => {
 @use '../sass/main.scss';
 @import '../sass/variables.scss';
 
-
-
-
-.overlay {
-  position: fixed;
-  width: 100%;
-  height: 100dvh;
-  display: flex;
-  overflow: hidden;
-  
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  z-index: 9999;
-  opacity: 1;
-  transition: opacity 0.5s ease-out;
-  // border: solid red;
-  // background-color: white;
-
-  .top {
-    border :none;
-    position:absolute;
-    top:0;
-    left: 0;
-    height: 50.05vh;
-    width: 100vw;
-    background-color: $bgcolordeepwhite; /* Solid black background */
-    // background-color: rgba(255, 255, 255, 0.057);
-
-
-    
-  }
-  .bottom {
-    border :none;
-
-    bottom: 0;
-    left: 0;
-    height: 50.05vh;
-    width: 100vw;
-    // border :solid;
-    position:absolute;
-    background-color: $bgcolordeepwhite; /* Solid black background */
-    // background-color: rgba(0, 0, 0, 0.224);
-
-
-
-  }
-
-
-  .vom {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    gap:4px;
-    // border: solid red;
-    height: 2.5rem;
-    overflow: hidden;
-
-    .q {
-      font-size: 30px;
-      color: #004c80;
-      // border: solid red;
-    }
-    .u {
-      font-size: 30px;
-      color: #004c80;
-      
-      // border: solid red;
-    }
-    .o {
-      font-size: 30px;
-      color: #004c80;
-      
-      // border: solid red;
-    }
-    .t {
-      font-size: 30px;
-      color: #004c80;
-      
-      // border: solid red;
-    }
-    .e {
-      font-size: 30px;
-      color: #004c80;
-      
-      // border: solid red;
-    }
-    .c {
-      font-size: 30px;
-      color: #004c80;
-      
-      // border: solid red;
-    }
-    .h {
-      font-size: 30px;
-      color: #004c80;
-      
-      // border: solid red;
-    }
-
-  }
-
-
-}
 .fade-enter-active, .fade-leave-active {
-  transition: opacity 300ms ease-out;
+  opacity: 1;
+  // visibility: hidden;
+  transition: all 300ms ease-out ;
 }
 .fade-enter-from, .fade-leave-to {
   opacity: 0;
+  // visibility: visible;
+
+  // transition: all 500ms ease;
 }
 .sidepanel {
   display: none;
