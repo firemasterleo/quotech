@@ -16,7 +16,7 @@
             </div>
             <div class="left-section">
                 <div class="image" ref="image">
-                    <img :src="imageStore.heroImage"/>
+                    <img :src="imageStore.heroImage" loading="eager" decoding="async" />
 
                     </div>
             </div>
