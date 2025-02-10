@@ -16,7 +16,8 @@
             </div>
             <div class="left-section">
                 <div class="image" ref="image">
-                    <img :src="heroImage" decoding="async"  alt="Hero Image" />
+                    <img :src="imageStore.heroImage" loading="eager" decoding="async" />
+
                     </div>
             </div>
   
@@ -26,14 +27,15 @@
   
 
 <script script setup>
-import {ref, onMounted} from 'vue';
+import {onMounted} from 'vue';
 import gsap from "gsap";
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import heroPic from "../assets/hero-picc.png"; 
+import { useImageStore } from "../stores/imageStore";
 
+const imageStore = useImageStore();
 
 gsap.registerPlugin(ScrollTrigger);
-const heroImage = ref("");
+
 
 let heroAnimation; // Store animation reference
 
@@ -44,14 +46,6 @@ onMounted(() => {
   .to(".image", { y: 0, duration: 0.8, ease: "cubic-bezier(0.6, 0, 0.2, 1)" }, "<"); // Move down
 });
 
-const storedImage = sessionStorage.getItem("heroImage");
-  
-  if (storedImage) {
-    heroImage.value = storedImage;
-  } else {
-    heroImage.value = heroPic; // Update this with your actual image path
-    sessionStorage.setItem("heroImage", heroImage.value);
-  }
 </script>
 
 <style lang="scss" scoped>
