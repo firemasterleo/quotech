@@ -1,41 +1,11 @@
 
 <template>
   <!-- v-if="showOverlay"  -->
-    <div v-if="showOverlay"  class="overlay">
-      <div class="top" ref="top">
-        
-      </div>
-      <div class="bottom" ref="bottom">
+   <div  v-if="showOverlay">
+     <Overlay/>
 
-      </div>
-    <div class="vom">
-      <div class="q" ref="q">
-        <h3>
-          Q
-        </h3>
-      </div>
-      <div class="u" ref="u">
-            <h3>
-              U
-            </h3>
-      </div>
-      <div class="o" ref="o">
-          <h3>O</h3>
-      </div>
-      <div class="t" ref="t">
-          <h3>T</h3>
-      </div>
-      <div class="e" ref="e">
-          <h3>E</h3>
-      </div>
-      <div class="c" ref="c">
-          <h3>C</h3>
-      </div>
-      <div class="h" ref="h">
-          <h3>H</h3>
-      </div>
-    </div>
-  </div>
+   </div>
+ 
 
   <div class="sidepanel" :class="{ 'is-expanded': isSidePanelOpen }">
        <SidePanel/>
@@ -52,6 +22,67 @@
     </router-view>
     
 </template>
+
+
+<script setup>
+import { ref, computed, onMounted, onUnmounted, onBeforeUnmount } from 'vue';
+import { useToggleStore } from '../stores/toggleStore';
+import gsap from "gsap";
+import LenisScroll from '../components/LenisScroll.vue';
+
+import ScrollTrigger from 'gsap/ScrollTrigger';
+
+import SidePanel from '../components/SidePanel.vue'; // Adjust path as necessary
+import Overlay from '../components/Overlay.vue';
+
+
+gsap.registerPlugin(ScrollTrigger);
+
+const toggleStore = useToggleStore();
+
+const isSidePanelOpen = computed(() => toggleStore.isSidePanelOpen);
+
+
+const showOverlay = ref(true);
+let overlayTimeout;
+
+const handleItemClick = () => {
+if (toggleStore.isSidePanelOpen) {
+  toggleStore.toggleSidePanel(); // used for buttons and  will toggle the side panel off
+}
+};
+
+
+
+//use transition lifecyclehook to clean up animation
+const cleanupAnimations = () => {
+  console.log('Performing GSAP cleanup after Vue transition...');
+  
+  ScrollTrigger.getAll().forEach(trigger => trigger.kill()); // Remove all ScrollTriggers
+  gsap.killTweensOf("*"); // Kill all tweens
+  gsap.globalTimeline.clear(); // Ensure global timeline is cleared
+  
+  // Check if cleanup was successful
+  const hasActiveAnimations = gsap.globalTimeline.getChildren().length > 0;
+console.log('Are there any active GSAP animations after cleanup?', hasActiveAnimations);
+
+
+};
+
+// router.beforeEach((to, from, next) => {
+//   showOverlay.value = true; // Show transition screen
+
+
+
+onMounted(() => {
+  overlayTimeout = setTimeout(() => {
+    showOverlay.value = false;
+  }, 2700);
+
+ 
+});
+
+</script>
 
 <style lang="scss">
 @use '../sass/main.scss';
@@ -230,83 +261,3 @@
 }
 
 </style>
-
-<script setup>
-import { ref, computed, onMounted, onUnmounted, onBeforeUnmount } from 'vue';
-import { useToggleStore } from '../stores/toggleStore';
-import gsap from "gsap";
-import LenisScroll from '../components/LenisScroll.vue';
-
-import ScrollTrigger from 'gsap/ScrollTrigger';
-
-import SidePanel from '../components/SidePanel.vue'; // Adjust path as necessary
-
-
-gsap.registerPlugin(ScrollTrigger);
-
-const toggleStore = useToggleStore();
-
-const isSidePanelOpen = computed(() => toggleStore.isSidePanelOpen);
-
-
-
-let vomAnimation; // Store animation reference
-
-
-const showOverlay = ref(true);
-let overlayTimeout;
-
-const handleItemClick = () => {
-if (toggleStore.isSidePanelOpen) {
-  toggleStore.toggleSidePanel(); // used for buttons and  will toggle the side panel off
-}
-};
-
-
-
-//use transition lifecyclehook to clean up animation
-const cleanupAnimations = () => {
-  console.log('Performing GSAP cleanup after Vue transition...');
-  
-  ScrollTrigger.getAll().forEach(trigger => trigger.kill()); // Remove all ScrollTriggers
-  gsap.killTweensOf("*"); // Kill all tweens
-  gsap.globalTimeline.clear(); // Ensure global timeline is cleared
-  
-  // Check if cleanup was successful
-  const hasActiveAnimations = gsap.globalTimeline.getChildren().length > 0;
-console.log('Are there any active GSAP animations after cleanup?', hasActiveAnimations);
-
-
-};
-
-// router.beforeEach((to, from, next) => {
-//   showOverlay.value = true; // Show transition screen
-
-
-
-onMounted(() => {
-  overlayTimeout = setTimeout(() => {
-    showOverlay.value = false;
-  }, 2700);
-
-  vomAnimation = gsap.timeline({ defaults: { duration: 0.6, ease: "power2.out" }, delay: 0.2 })
-    .from(".q", { y: -100, opacity: 0 }) // V enters
-    .from(".u", { y: 100, opacity: 0 }, "<") // O enters slightly before V finishes
-    .from(".o", { y: -100, opacity: 0, }, "<") // M enters slightly before O finishes
-    .from(".t", { y: 100, opacity: 0, }, "<") // M enters slightly before O finishes
-    .from(".e", { y: -100, opacity: 0, }, "<") // M enters slightly before O finishes
-    .from(".c", { y: 100, opacity: 0, }, "<") // M enters slightly before O finishes
-    .from(".h", { y: -100, opacity: 0, }, "<") // M enters slightly before O finishes
-    .to(".q", { y: 100, opacity: 0, delay: 0.8 }) // V exits
-    .to(".u", { y: -100, opacity: 0 }, "<") // O exits slightly before V finishes
-    .to(".o", { y: 100, opacity: 0 }, "<") // M exits slightly before O finishes
-    .to(".t", { y: -100, opacity: 0 }, "<") // M exits slightly before O finishes
-    .to(".e", { y: 100, opacity: 0 }, "<") // M exits slightly before O finishes
-    .to(".c", { y: -100, opacity: 0 }, "<") // M exits slightly before O finishes
-    .to(".h", { y: 100, opacity: 0 }, "<") // M exits slightly before O finishes
-
-    .to(".top", { y: "-100%", duration: 0.8, ease: "cubic-bezier(0.6, 0, 0.2, 1)" }, "-=0.25")
-    .to(".bottom", { y: "100%", duration: 0.8, ease: "cubic-bezier(0.6, 0, 0.2, 1)" }, "<"); // Move down
-});
-
-</script>

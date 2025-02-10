@@ -6,6 +6,7 @@
       
       <!-- Optional Hidden Honeypot to Block Bots -->
       <input type="hidden" name="bot-field" />
+      <p>Subscribe to our newsletter</p>
   
       <label for="email">Email Address:</label>
       <input type="email" id="email" name="email" required>
@@ -49,6 +50,10 @@
   </script>
   
   <style scoped>
+
+p {
+    color: white;
+}
   .thank-you-message {
     margin-top: 20px;
     padding: 10px;
