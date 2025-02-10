@@ -1,7 +1,7 @@
 <template>
     <form name="newsletter" method="POST" data-netlify="true" @submit.prevent="handleSubmit">
       <!-- Hidden Input for Netlify Form Identification -->
-      <input type="hidden" name="newsletter" value="newsletter" />
+      <input type="hidden" name="form-name" value="newsletter" />
       
       <!-- Optional Hidden Honeypot to Block Bots -->
       <input type="hidden" name="bot-field" />
