@@ -16,7 +16,7 @@
             </div>
             <div class="left-section">
                 <div class="image" ref="image">
-                    <img :src="imageStore.heroImage" loading="eager"/>
+                    <img :src="imageStore.heroImage"/>
 
                     </div>
             </div>
@@ -31,7 +31,7 @@
 import {onMounted} from 'vue';
 import gsap from "gsap";
 import ScrollTrigger from 'gsap/ScrollTrigger';
-import { useImageStore } from "../stores/imageStore";
+import { useImageStore } from '../stores/imageStore';
 
 const imageStore = useImageStore();
 

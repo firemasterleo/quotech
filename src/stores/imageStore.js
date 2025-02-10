@@ -1,12 +1,14 @@
-import { defineStore } from "pinia";
+import { defineStore } from 'pinia';
 
-export const useImageStore = defineStore("image", {
+export const useImageStore = defineStore('image', {
   state: () => ({
-    heroImage: "../assets/hero-piccc.png", // Default image path
+    heroImage: '/assets/hero-piccc.png',//IMPORTANT  // Path relative to the public directory for images you want to access directly via URL (for persistence, storage, etc.), 
   }),
   actions: {
     setHeroImage(imageUrl) {
       this.heroImage = imageUrl;
     },
   },
+  persist: true,  // Pinia will automatically persist the state to localStorage
+
 });
