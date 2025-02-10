@@ -16,7 +16,7 @@
             </div>
             <div class="left-section">
                 <div class="image" ref="image">
-                    <img :src="heroImage" alt="Hero Image" />
+                    <img :src="heroImage" decoding="async"  alt="Hero Image" />
                     </div>
             </div>
   
