@@ -1,7 +1,7 @@
 <template>
     <div class="sectioncontainer">
       <div class="section">
-            <div class="right-section">
+          <div class="right-section">
                 <h2>
                     <span>Keep Your Home Safe!</span><br>With our State-of-the-art Electric fence, Motorized gate & Security Alarm Systems.
                 </h2>
@@ -15,7 +15,7 @@
                 </div>
             </div>
             <div class="left-section">
-                <div class="image">
+                <div class="image" ref="image">
                         <img src="../assets/hero-picc.png" loading="lazy" alt="">        
 
                     </div>
@@ -27,6 +27,23 @@
   
 
 <script script setup>
+import {onMounted} from 'vue';
+import gsap from "gsap";
+import ScrollTrigger from 'gsap/ScrollTrigger';
+
+
+
+gsap.registerPlugin(ScrollTrigger);
+
+
+let heroAnimation; // Store animation reference
+
+onMounted(() => {
+
+    heroAnimation = gsap.timeline({ defaults: { duration: 0.6, ease: "power2.out" }, delay: 0.2 })
+  .from(".image", { y: 100, opacity: 0 }) // V enters
+  .to(".image", { y: 0, duration: 0.8, ease: "cubic-bezier(0.6, 0, 0.2, 1)" }, "<"); // Move down
+});
 
 </script>
 
@@ -63,6 +80,12 @@ display: flex;
         flex-direction: column;
         gap: 2rem;
         // border: solid;
+
+        h1 {
+            color: $textcolorwhite;
+            font-weight: 600;
+            font-size: 54px;
+        }
 
         h2 {
             color: $textcolorwhite;
@@ -119,7 +142,7 @@ display: flex;
 
 @media (max-width: 800px) {
   .sectioncontainer {
-      height: 100vh;
+      height: 110vh;
     .section {
       width: 100vw;
       height: 100%;

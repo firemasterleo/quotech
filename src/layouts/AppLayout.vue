@@ -17,7 +17,7 @@
     <router-view v-slot="{ Component }" > 
       <transition name="fade" mode="out-in" @after-leave="cleanupAnimations"> 
         <!-- Dynamically render the component with the transition -->
-        <component :is="Component" />
+        <component  v-if="showContent" :is="Component" />
       </transition>
     </router-view>
     
@@ -45,6 +45,7 @@ const isSidePanelOpen = computed(() => toggleStore.isSidePanelOpen);
 
 const showOverlay = ref(true);
 let overlayTimeout;
+const showContent = ref(false);
 
 const handleItemClick = () => {
 if (toggleStore.isSidePanelOpen) {
@@ -78,6 +79,11 @@ onMounted(() => {
   overlayTimeout = setTimeout(() => {
     showOverlay.value = false;
   }, 2700);
+
+
+  setTimeout(() => {
+    showContent.value = true;
+  }, 1600); // Adjust delay time to match your overlay animation
 
  
 });
