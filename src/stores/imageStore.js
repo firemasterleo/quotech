@@ -9,8 +9,4 @@ export const useImageStore = defineStore("image", {
       this.heroImage = imageUrl;
     },
   },
-  persist: {
-    storage: localStorage,  // Use localStorage for persistence (default)
-    paths: ['heroImage'],   // Optionally specify which state properties to persist
-  }
 });
