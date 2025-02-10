@@ -8,7 +8,7 @@
       <button type="submit">Subscribe</button>
     </form>
     <form name="newsletter" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
-      <input type="hidden" name="newsletter" value="contact" />
+      <input type="hidden" name="newsletter" value="newletter" />
       
       <label for="email">Email Address:</label>
       <input type="email" id="email" name="email" required>
