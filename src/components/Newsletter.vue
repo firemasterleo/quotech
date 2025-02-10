@@ -1,85 +1,69 @@
 <template>
-    <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
-      <input type="hidden" name="contact" value="contact" />
-      
-      <label for="email">Email Address:</label>
-      <input type="email" id="email" name="email" required>
-  
-      <button type="submit">Subscribe</button>
-    </form>
-    <form name="newsletter" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+    <form name="newsletter" method="POST" data-netlify="true" @submit.prevent="handleSubmit">
+      <!-- Hidden Input for Netlify Form Identification -->
       <input type="hidden" name="newsletter" value="newsletter" />
       
+      <!-- Optional Hidden Honeypot to Block Bots -->
+      <input type="hidden" name="bot-field" />
+  
       <label for="email">Email Address:</label>
       <input type="email" id="email" name="email" required>
   
       <button type="submit">Subscribe</button>
     </form>
-  </template>
-
-
   
-  <style lang="scss" scoped>
- /* General form styles */
-form[name="newsletter-signup"] {
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  font-family: Arial, sans-serif;
-}
-
-/* Label styles */
-form[name="newsletter-signup"] label {
-  display: block;
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-
-/* Input field styles */
-form[name="newsletter-signup"] input[type="email"] {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 16px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 14px;
-}
-
-form[name="newsletter-signup"] input[type="email"]:focus {
-  border-color: #007BFF;
-  outline: none;
-}
-
-/* Button styles */
-form[name="newsletter-signup"] button {
-  width: 100%;
-  padding: 12px;
-  background-color: #007BFF;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-form[name="newsletter-signup"] button:hover {
-  background-color: #0056b3;
-}
-
-/* Responsive styles */
-@media (max-width: 600px) {
-  form[name="newsletter-signup"] {
-    padding: 15px;
+    <!-- Thank You Message -->
+    <div v-if="isSubmitted" class="thank-you-message">
+      <h2>Thank You for Submitting!</h2>
+      <p>We appreciate your subscription.</p>
+    </div>
+  </template>
+  
+  <script setup>
+  import { ref } from 'vue';
+  
+  const isSubmitted = ref(false); // Track if the form has been submitted
+  
+  const handleSubmit = async (event) => {
+    event.preventDefault(); // Prevent the default form submission
+    
+    const formData = new FormData(event.target);
+  
+    try {
+      const response = await fetch("/", {
+        method: "POST",
+        body: formData,
+      });
+  
+      // Handle the response (if success, show the thank you message)
+      if (response.ok) {
+        isSubmitted.value = true; // Show the Thank You message
+      } else {
+        alert("Sorry, there was an error with your submission. Please try again.");
+      }
+    } catch (error) {
+      alert("Error: " + error);
+    }
+  };
+  </script>
+  
+  <style scoped>
+  .thank-you-message {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #dff0d8;
+    border: 1px solid #d0e9c6;
+    color: #3c763d;
+    border-radius: 4px;
   }
-
-  form[name="newsletter-signup"] input[type="email"],
-  form[name="newsletter-signup"] button {
-    font-size: 14px;
+  
+  .thank-you-message h2 {
+    margin: 0;
+    font-size: 1.5em;
   }
-}
+  
+  .thank-you-message p {
+    margin: 10px 0 0;
+  }
   </style>
   
