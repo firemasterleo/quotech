@@ -1,23 +1,13 @@
 <template>
-  <form name="contact"
-  method="POST"
-  data-netlify="true"
-  netlify-honeypot="bot-field">
-<label for="email">Email Address:</label>
-<input type="email" id="email" name="email" required>
-
-<!-- Optional hidden field for honeypot (anti-bot) -->
-<input type="hidden" name="contact" value="contact">
-
-<button type="submit">Subscribe</button>
-</form>
-
-<!-- Success message container -->
-<div id="success-message" style="display: none;">
-<h3>Thank you for subscribing! You'll hear from us soon.</h3>
-</div>
+    <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+      <input type="hidden" name="contact" value="contact" />
+      
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="email" required>
+  
+      <button type="submit">Subscribe</button>
+    </form>
   </template>
-
 
 
   
