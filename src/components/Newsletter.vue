@@ -7,7 +7,7 @@
 <input type="email" id="email" name="email" required>
 
 <!-- Optional hidden field for honeypot (anti-bot) -->
-<input type="hidden" name="form-name" value="contact">
+<input type="hidden" name="contact" value="contact">
 
 <button type="submit">Subscribe</button>
 </form>
