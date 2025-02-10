@@ -16,7 +16,7 @@
             </div>
             <div class="left-section">
                 <div class="image" ref="image">
-                    <img :src="imageStore.heroImage" loading="eager" decoding="async" />
+                    <img :src="imageStore.heroImage" loading="eager"/>
 
                     </div>
             </div>
@@ -25,7 +25,7 @@
     </div>
   </template>
   
-  
+
 
 <script script setup>
 import {onMounted} from 'vue';
