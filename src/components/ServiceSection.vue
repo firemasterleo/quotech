@@ -17,7 +17,7 @@
         <div class="text">
             <h1>Electric Fence</h1>
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid adipisci sunt voluptatibus </p>
-<svg xmlns='http://www.w3.org/2000/svg'  viewBox='0 0 24 24' fill='#000000' width='24' height='24'><path d="M21 11H6.414l5.293-5.293-1.414-1.414L2.586 12l7.707 7.707 1.414-1.414L6.414 13H21z"></path></svg>
+<svg xmlns='http://www.w3.org/2000/svg'  viewBox='0 0 24 24' fill='#000000' width='28' height='28'><path d="M21 11H6.414l5.293-5.293-1.414-1.414L2.586 12l7.707 7.707 1.414-1.414L6.414 13H21z"></path></svg>
 
         </div>
     </div>
@@ -29,6 +29,8 @@
         <div class="text">
             <h1>Motorized gate</h1>
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid adipisci sunt voluptatibus </p>
+<svg xmlns='http://www.w3.org/2000/svg'  viewBox='0 0 24 24' fill='#000000' width='24' height='24'><path d="M21 11H6.414l5.293-5.293-1.414-1.414L2.586 12l7.707 7.707 1.414-1.414L6.414 13H21z"></path></svg>
+
         </div>
     </div>
     <div class="service">
@@ -39,6 +41,8 @@
         <div class="text">
           <h1>Home Automation </h1>
           <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid adipisci sunt voluptatibus </p>
+<svg xmlns='http://www.w3.org/2000/svg'  viewBox='0 0 24 24' fill='#000000' width='24' height='24'><path d="M21 11H6.414l5.293-5.293-1.414-1.414L2.586 12l7.707 7.707 1.414-1.414L6.414 13H21z"></path></svg>
+
         </div>
     </div>
     <div class="service">
@@ -49,6 +53,8 @@
         <div class="text">
             <h1>Security Alarm Systems</h1>
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid adipisci sunt voluptatibus </p>
+<svg xmlns='http://www.w3.org/2000/svg'  viewBox='0 0 24 24' fill='#000000' width='24' height='24'><path d="M21 11H6.414l5.293-5.293-1.414-1.414L2.586 12l7.707 7.707 1.414-1.414L6.414 13H21z"></path></svg>
+
         </div>
     </div>
     <div class="service">
@@ -58,6 +64,8 @@
         <div class="text">
             <h1>Consulting & Maintenance Services</h1>
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid adipisci sunt voluptatibus </p>
+<svg xmlns='http://www.w3.org/2000/svg'  viewBox='0 0 24 24' fill='#000000' width='24' height='24'><path d="M21 11H6.414l5.293-5.293-1.414-1.414L2.586 12l7.707 7.707 1.414-1.414L6.414 13H21z"></path></svg>
+
         </div>
     </div>
 </div>
@@ -85,8 +93,16 @@ display: flex;
     width: 80rem;
     height: 100vh; /* Full viewport height */
     margin-inline: auto;
+    .svg {
+      svg {
+        fill: #004C80;
+      }
+
+    }
 
     .header-text {
+      
+      color: $primarycolorblack1;
 
     }
     .services {
@@ -115,15 +131,19 @@ display: flex;
       height: fit-content;
 
     .header-text {
-      text-align: center;
+      // text-align: center;
       margin-bottom: 1rem;
+      padding-inline: 1rem;
+      h1 {
+       font-size: 45px;
+      }
 
     }
     .services {
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      padding-inline: 0.5rem;
+      // padding-inline: 0.5rem;
 
       .service {
         height: fit-content;
@@ -145,9 +165,27 @@ display: flex;
           }
         }
         .text {
+          padding-block: 0.5rem;
+          display: flex;
+          flex-direction: column;
+          // gap: 1rem;
+h1 {
+  font-size: 22px;
+  color: $primarycolorblack1;
+}
+p {
+  font-size: 16px;
+  font-weight: 400;
+  color: $primarycolorblack1;
 
+  // border: solid 1px;
+}
           svg {
             rotate: 180deg;
+            margin-top: 1rem;
+            fill: green;
+            width: 28px;
+            height: 28px;
           }
         }
       }
