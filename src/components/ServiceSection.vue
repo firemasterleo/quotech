@@ -46,7 +46,7 @@ display: flex;
 
 
     .svg {
-  background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+  // background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
 
     }
 
