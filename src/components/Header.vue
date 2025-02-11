@@ -62,7 +62,9 @@
             // width: 62rem;
             width: 100%;
             background-color: #004c80; /* Solid black background */
-            backdrop-filter: blur(20px);
+  background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+
+            // backdrop-filter: blur(20px);
             height: 3.2rem;
             // border-radius: 2rem;
             padding-left: 1rem;
