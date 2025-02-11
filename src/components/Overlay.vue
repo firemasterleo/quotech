@@ -178,7 +178,7 @@ let vomAnimation; // Store animation reference
 
 onMounted(() => {
 
-  vomAnimation = gsap.timeline({ defaults: { duration: 0.6, ease: "power2.out" }, delay: 0.2 })
+  vomAnimation = gsap.timeline({ defaults: { duration: 0.7, ease: "power2.out" },  })
     .from(".q", { y: -100, opacity: 0 }) // V enters
     .from(".u", { y: 100, opacity: 0 }, "<") // O enters slightly before V finishes
     .from(".o", { y: -100, opacity: 0, }, "<") // M enters slightly before O finishes

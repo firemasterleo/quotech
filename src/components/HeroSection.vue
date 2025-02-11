@@ -74,6 +74,7 @@ display: flex;
     // border: solid red;
     padding-left: 5rem;
     padding-right: 2rem;
+    overflow: hidden;
 
 
     .right-section {
