@@ -48,6 +48,7 @@
                         <li>Privacy</li>
                     </ul>
                 </div>
+                <p>Design & Coding : <span>SHAPESTATION</span> </p>
     
             </div>
     
@@ -168,14 +169,18 @@
         border-top: solid 1px $textcolorwhite;
         width: 100%;
         display: flex;
-        align-items: center;
+        flex-direction: column;
+        // align-items: center;
+        justify-content: center;
         margin-inline: auto;
         height: 6.5rem;
         font-size: 12px;
         color: $textcolorwhite;
+        // border: solid red;
+        padding-left: 0.5rem;
 
         position: absolute;
-        bottom: 1rem;
+        bottom: 0rem;
 
         .bottom-left {
             display: flex;
@@ -186,6 +191,12 @@
                 gap: 1.5rem;
             }
         }
+p {
+    span {
+        border-bottom: solid 1px;
+
+    }
+}
     }
 
 }
